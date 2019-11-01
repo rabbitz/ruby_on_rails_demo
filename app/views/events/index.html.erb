@@ -8,8 +8,12 @@
     <%= link_to '更改', edit_event_path(e) %>
     <%#= link_to 'Delete', :controller => 'events', :action => 'destroy', :id => e %>
     <%= button_to '删除', event_path(e), :method => :delete, :data => { :confirm => "确定要删除吗" } %>
+
+    <%= link_to " (XML)", event_path(e, :format => :xml) %>
+    <%= link_to " (JSON)", event_path(e, :format => :json) %>
   </li>
 <% end %>
 <%= paginate @events %>
 <%#= link_to 'New Event', :controller => 'events', :action => 'new' %>
 <%= link_to '新建', new_event_path %>
+<%= link_to "Atom feed", events_path(:format => :atom) %>
