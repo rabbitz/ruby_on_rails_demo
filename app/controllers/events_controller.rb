@@ -15,6 +15,7 @@ class EventsController < ApplicationController
   def create
     @event = Event.new( event_pararms )
     if @event.save
+      flash[:notice] = "新增成功"
       redirect_to :action => :index #HTTP 303
     else
       render :action => :new
@@ -35,6 +36,7 @@ class EventsController < ApplicationController
   def update
     #@event = Event.find(params[:id])
     if @event.update(event_pararms)
+      flash[:notice] = "更改成功"
       redirect_to :action => :show, :id => @event
     else
       render :action => :edit
@@ -44,6 +46,7 @@ class EventsController < ApplicationController
   def destroy
     #@event = Event.find(params[:id])
     @event.destroy
+    flash[:alert] = "删除成功"
     redirect_to :action => :index
   end
 

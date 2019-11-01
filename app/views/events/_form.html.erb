@@ -1,5 +1,17 @@
-<%= test.label :name, "Name" %>
-<%= test.text_field :name %>
+<p>
+  <%= test.label :name, "Name" %>
+  <%= test.text_field :name %>
+</p>
+<p>
+  <%= test.label :description, "Description" %>
+  <%= test.text_area :description %>
+</p>
 
-<%= test.label :description, "Description" %>
-<%= test.text_area :description %>
+<%#错误讯息提示%>
+<% if @event.errors.any? %>
+      <ul>
+      <% @event.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+<% end %>
