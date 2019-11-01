@@ -16,7 +16,8 @@ class EventsController < ApplicationController
     @event = Event.new( event_pararms )
     if @event.save
       flash[:notice] = "新增成功"
-      redirect_to :action => :index #HTTP 303
+      #redirect_to :action => :index #HTTP 303
+      redirect_to events_url
     else
       render :action => :new
     end
@@ -37,7 +38,8 @@ class EventsController < ApplicationController
     #@event = Event.find(params[:id])
     if @event.update(event_pararms)
       flash[:notice] = "更改成功"
-      redirect_to :action => :show, :id => @event
+      #redirect_to :action => :show, :id => @event
+      redirect_to event_url(@event)
     else
       render :action => :edit
     end

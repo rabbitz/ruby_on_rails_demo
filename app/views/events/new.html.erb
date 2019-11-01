@@ -1,4 +1,5 @@
-<%= form_for @event, :url => { :controller => 'events', :action => 'create' } do |e| %>
+<%#= form_for @event, :url => { :controller => 'events', :action => 'create' } do |e| %>
+<%= form_for @event, :url => events_path do |e| %>
     <%#= e.label :name, "Name" %>
     <%#= e.text_field :name %>
 
